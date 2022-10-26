@@ -1,0 +1,3 @@
+Scaffold-DbContext "Server=.;Database=WhiteBlueDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model
+
+Scaffold-DbContext "Server=.;Database=BankDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model

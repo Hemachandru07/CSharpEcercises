@@ -1,0 +1,3 @@
+21/06/2022 execise
+interface a with method 1,2
+interface b with method 3,4

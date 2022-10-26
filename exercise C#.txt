@@ -1,0 +1,29 @@
+16/06/2022
+1. Create a C# console application which will accept student name, and five marks
+Calculate Average and grade him as per the following data:
+average is greater than 90 - outstanding
+average is between 65 to 90 - Excellent
+average is between 40 to 65 - Good
+average below 40 - fail
+
+
+2. Create a c# console application which will accept the date of birth of a person
+and calculate his age and also print if the person was born in a leap year.
+
+3. Create a c# console application which will get the account number and the option of
+deposit or withdrawl.
+
+If deposit - get the amount to be deposited and add the amount
+to the balance (static value of 5000) and print the data to the user
+
+If Withdrawl - get the amount to be withdrawn and deduct it from balance(static value of 5000)
+and print the data to the user.
+
+
+4. Create a c# console application which will get the number of students in a class
+and print "welcome student (number) " for all the students.
+(use for loop)
+
+
+5. Create a c# console application which will get the maximum score from a player
+and invoke a method which displays "Congratulations!!!" as much as the score.

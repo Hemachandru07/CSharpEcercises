@@ -1,0 +1,51 @@
+Scaffold-DbContext "Server=.;Database=WhiteBlueDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model 
+
+Scaffold-DbContext "Server=.;Database=BankDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model
+
+
+Scaffold-DbContext "Server=.;Database=CustomerDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Model
+
+Scaffold-DbContext "Server=.;Database=ACGCETDB;Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+
+------------------------------------------
+startupcs:
+
+services.AddDbContext<WhiteBlueDBContext>(options =>
+options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+appsettingjson:
+
+"ConnectionStrings": {"DefaultConnection": "Server=.;Database=CustomerDB;Trusted_Connection=True;"},
+
+"ConnectionStrings": {"DefaultConnection": "Server=.;Database=ACGCETDB;Trusted_Connection=True;"},
+
+Http session(StartUp)
+services.AddSession();
+
+app.UseSession();
+-----
+startup.cs(for logout add this in session)
+
+services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+------
+inject in partial_layout
+@inject IHttpContextAccessor HttpContextAccessor
+
+----------------------------------------
+new db connection
+
+Scaffold-DbContext "Server=OQ0Y8P0EAT6UW;Database=DBFirst;User Id=sa; Password=!Morning1;MultipleActiveResultSets=true" -OutputDir Models
+
+"DefaultConnection": "Server=OQ0Y8P0EAT6UW;Database=StudentDB;User Id=sa; Password=!Morning1;MultipleActiveResultSets=true"
+
+"ConnectionStrings": {"DefaultConnection": "Server=OQ0Y8P0EAT6UW;Database=StudentDB;User Id=sa; Password=!Morning1;MultipleActiveResultSets=true"
+},
+
+
+
+
+

@@ -1,0 +1,72 @@
+
+{
+    public class BankRepository : IBankRepository
+    {
+        public static SqlConnection con;
+        public static SqlCommand cmd;
+        private static SqlConnection getcon()
+        {
+            con = new SqlConnection("Data Source = AS1HJTYL2L8Q;Initial Catalog=Bank; Integrated Security=true"); //
+            con.Open();
+            return con;
+        }
+        public void DepositAmount(int accno, decimal amt)
+        {
+            int action = Convert.ToInt32(Console.ReadLine());
+            int action = Convert.ToInt32(Console.ReadLine());
+        }        
+
+public void GetAccountDetails()       
+        {
+            Console.WriteLine("Eneter account number");
+            int AccountNumber = Convert.ToInt32(Console.ReadLine());
+            con = getcon();
+            cmd = new SqlCommand("select * from Newaccount where @AccountNumber=AccountNumber");
+            cmd.Parameters.AddWithValue("@AccountNumber", AccountNumber);            cmd.Connection = con;
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                for (int i = 0; i < dr.FieldCount; i++)
+                {
+                    Console.Write(dr[i] + " ");
+                }
+                Console.WriteLine();
+            }
+            dr.Close();
+            cmd.ExecuteNonQuery();
+        }        public void GetAllAccounts()
+        {
+            con = getcon();
+            cmd = new SqlCommand("select *from Newaccount");
+            cmd.Connection = con;
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                for (int i = 0; i < dr.FieldCount; i++)
+                {
+                    Console.Write(dr[i] + " ");
+                }
+                Console.WriteLine();
+            }
+        }        public List<SBTransaction> GetTransactions(int accno)
+        {
+            throw new NotImplementedException();
+        }        public void NewAccount()
+        {
+                con = getcon();
+                Console.WriteLine("Enter AccountNumber,CustomerName,CustomerAddress");
+                int AccountNumber = Convert.ToInt32(Console.ReadLine());
+                string CustomerName = Console.ReadLine();
+                string CustomerAddress = Console.ReadLine();
+                cmd = new SqlCommand("insert into NewAccount values(@AccountNumber,@CustomerName,@CustomerAddress,default)");
+                cmd.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+                cmd.Parameters.AddWithValue("@CustomerName", CustomerName);
+                cmd.Parameters.AddWithValue("@CustomerAddress",CustomerAddress);
+                cmd.Connection = con;
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Inserted");
+        }            public void WithdrawAmount(int accno, decimal amt)
+        {
+        }
+    }
+}
